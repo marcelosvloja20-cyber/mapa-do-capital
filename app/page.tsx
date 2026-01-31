@@ -1,75 +1,61 @@
-import React from "react";
-import { motion } from "framer-motion";
 
-export default function MapaDoCapital() {
+export default function Home() {
   return (
-    <div className="min-h-screen bg-black text-white font-sans">
-      <header className="flex justify-between items-center px-8 py-4 border-b border-yellow-500">
-        <h1 className="text-2xl font-bold text-yellow-400">MAPA DO CAPITAL</h1>
-        <nav className="space-x-6 text-sm">
-          <a>Mercado</a>
-          <a>Minha Carteira</a>
-          <a>Notícias</a>
-          <a>Análises</a>
-          <a>Ferramentas</a>
-        </nav>
-        <div className="space-x-2">
-          <button className="px-4 py-1 border border-yellow-400 rounded">Entrar</button>
-          <button className="px-4 py-1 bg-yellow-400 text-black rounded">Cadastrar</button>
-        </div>
-      </header>
+    <main style={{
+      backgroundColor: "#0b0b0f",
+      minHeight: "100vh",
+      color: "white",
+      fontFamily: "Arial, sans-serif",
+      padding: "24px"
+    }}>
+      
+      <h1 style={{ color: "#FFD700", fontSize: "2.2rem", marginBottom: "8px" }}>
+        Mapa do Capital
+      </h1>
 
-      <section className="px-10 py-14">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-4xl font-bold"
-        >
-          Onde o <span className="text-yellow-400">dinheiro</span> encontra <span className="text-yellow-400">direção</span>
-        </motion.h2>
-        <p className="text-gray-400 mt-2">Inteligência financeira para investir melhor</p>
+      <p style={{ opacity: 0.8, marginBottom: "32px" }}>
+        Visualize dinheiro, investimentos e economia em tempo real
+      </p>
 
-        <div className="grid grid-cols-4 gap-4 mt-10">
-          {[
-            ["IBOVESPA", "123.450", "+0,55%"],
-            ["DÓLAR", "R$5,32", "-0,24%"],
-            ["BITCOIN", "$42.350", "+2,10%"],
-            ["SELIC", "11,75%", "a.a"],
-          ].map((item) => (
-            <div key={item[0]} className="bg-zinc-900 p-4 rounded-xl shadow">
-              <p className="text-sm text-gray-400">{item[0]}</p>
-              <p className="text-xl font-semibold">{item[1]}</p>
-              <p className="text-green-400 text-sm">{item[2]}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="grid grid-cols-3 gap-6 mt-12">
-          <div className="bg-zinc-900 p-6 rounded-2xl">Selic sobe para 11,75%</div>
-          <div className="bg-zinc-900 p-6 rounded-2xl">Balanços do trimestre</div>
-          <div className="bg-zinc-900 p-6 rounded-2xl">Oportunidade em Cripto</div>
-        </div>
-
-        <div className="grid grid-cols-3 gap-6 mt-10">
-          <div className="bg-zinc-900 p-5 rounded-xl">Simulador de Investimentos</div>
-          <div className="bg-zinc-900 p-5 rounded-xl">Calculadora de Aposentadoria</div>
-          <div className="bg-zinc-900 p-5 rounded-xl">Comparar Ativos</div>
-        </div>
-
-        <div className="grid grid-cols-2 gap-8 mt-14">
-          <div className="bg-zinc-900 p-6 rounded-2xl">
-            <h3 className="text-yellow-400 font-semibold mb-2">Minha Carteira</h3>
-            <p>Patrimônio: R$ 158.750</p>
-            <p>Dividendos no mês: R$ 780</p>
+      <section style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+        gap: "16px"
+      }}>
+        
+        {[
+          { title: "Mercados", value: "+1.42%" },
+          { title: "Criptomoedas", value: "BTC $68.400" },
+          { title: "Carteira", value: "R$ 52.800" },
+          { title: "Dividendos", value: "R$ 1.240/mês" }
+        ].map((card, i) => (
+          <div key={i} style={{
+            background: "#14141c",
+            borderRadius: "16px",
+            padding: "20px",
+            border: "1px solid #222",
+            boxShadow: "0 0 12px rgba(255,215,0,0.15)"
+          }}>
+            <p style={{ opacity: 0.7 }}>{card.title}</p>
+            <h2 style={{ color: "#FFD700", marginTop: "8px" }}>
+              {card.value}
+            </h2>
           </div>
-          <div className="bg-zinc-900 p-6 rounded-2xl">
-            <h3 className="text-yellow-400 font-semibold mb-2">Alertas</h3>
-            <p>Petrobras: hora de vender?</p>
-            <p>Tesouro IPCA com nova taxa</p>
-          </div>
-        </div>
+        ))}
       </section>
-    </div>
-  );
+
+      <div style={{
+        marginTop: "40px",
+        padding: "24px",
+        background: "linear-gradient(135deg, #FFD700, #ffb700)",
+        color: "#000",
+        borderRadius: "18px",
+        fontWeight: "bold"
+      }}>
+        Central de inteligência financeira em tempo real 🚀
+      </div>
+
+    </main>
+  )
 }
 
